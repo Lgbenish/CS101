@@ -1,0 +1,11 @@
+#loan term in months
+#loan value is price of loan per $1000 lent - determined by bank
+
+def car_payment(loan_term, loan_value, apr, vehicle_price, down_payment = 0, trade_in = 0):
+    monthly_interest = apr/12
+    number_1000s = (vehicle_price-(down_payment+trade_in))/1000
+    monthly_payment = number_1000s*loan_value+number_1000s*monthly_interest
+    total = monthly_payment*loan_term
+    return f"""
+    Your monthly payment will be: {round(monthly_payment, 2)} 
+    Your total payment over the life of the loan will be: {round(total, 2)}"""
